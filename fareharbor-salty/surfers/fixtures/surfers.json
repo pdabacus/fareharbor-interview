@@ -1,0 +1,32 @@
+[
+  {
+    "model": "surfers.Surfer",
+    "pk": 1,
+    "fields": {
+      "name": "Billy Kookmeyer",
+      "skill": 0.1,
+      "bio": "Bill started surfing a decade ago, but he's a perpetual novice. But he's happy!",
+      "image_url": "http://www.wilbur-kookmeyer.com/WilburImages/Misclogos/wilburheadsidebar1.png"
+    }
+  },
+  {
+    "model": "surfers.Surfer",
+    "pk": 2,
+    "fields": {
+      "name": "Rick Kane",
+      "skill": 0.7,
+      "bio": "Rick grew up surfing wave pools in Arizona, but a contest win allowed him to move to Hawaii.",
+      "image_url": "http://www.thesurfingblog.com/wp-content/uploads//2009/08/rick-kane-300x168.jpg"
+    }
+  },
+  {
+    "model": "surfers.Surfer",
+    "pk": 3,
+    "fields": {
+      "name": "Chandler",
+      "skill": 0.9,
+      "bio": "Chandler is a shaper and soul surfer, living on the North Shore of Oahu.",
+      "image_url": "http://www.gregoryharrison.com/photos/north-shore.jpg"
+    }
+  }
+]

@@ -1,0 +1,28 @@
+{% extends "base.template" %}
+
+{% block nav_surfers_classes %}
+  active
+{% endblock %}
+
+{% block content %}
+
+  <div class="row">
+    <div class="col-md-4">
+  
+      <h2>{{ surfer.name }}</h2>
+      {% include 'shared/surfer.template' %}
+  
+      <p class="bio">
+        {{ surfer.bio }}
+      </p>
+  
+    </div>
+    <div class="col-md-8">
+      
+      <h3>{{ surfer.name }}'s boards:</h3>
+      
+      {% include 'shared/surfboards.template' with surfboards=surfer.surfboard_set.all %}
+    </div>
+  </div>
+
+{% endblock %}

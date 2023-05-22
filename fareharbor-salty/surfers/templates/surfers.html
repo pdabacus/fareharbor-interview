@@ -1,0 +1,17 @@
+{% extends 'base.template' %}
+
+{% block nav_surfers_classes %}
+  active
+{% endblock %}
+
+{% block content %}
+  <div class="page-header">
+    <h1>Surfers</h1>
+  </div>
+
+  {% include 'shared/surfers.template' %}
+{% endblock %}
+
+{% block quote %}
+  I thought I told you to go home.
+{% endblock %}

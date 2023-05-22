@@ -1,0 +1,32 @@
+[
+  {
+    "model": "surfers.Shaper",
+    "pk": 1,
+    "fields": {
+      "name": "James Mitchell",
+      "label": "Las Olas",
+      "website_url": "http://sunsetshapers.com",
+      "shaping_since": "2006-03-01"
+    }
+  },
+  {
+    "model": "surfers.Shaper",
+    "pk": 2,
+    "fields": {
+      "name": "Doug Haut",
+      "label": "Haut Surfboards",
+      "website_url": "http://www.hautsurfboards.com/",
+      "shaping_since": "1965-06-01"
+    }
+  },
+  {
+    "model": "surfers.Shaper",
+    "pk": 3,
+    "fields": {
+      "name": "Greg Liddle",
+      "label": "Liddle",
+      "website_url": "http://www.liddlesurfboards.com/",
+      "shaping_since": "1968-09-01"
+    }
+  }
+]

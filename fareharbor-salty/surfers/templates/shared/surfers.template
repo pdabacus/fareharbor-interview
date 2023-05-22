@@ -1,0 +1,7 @@
+<ul>
+  {% for surfer in surfers %}
+    {% include 'shared/surfer.template' %}
+  {% empty %}
+    No waves, no surfers.
+  {% endfor %}
+</ul>

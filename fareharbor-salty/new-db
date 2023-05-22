@@ -1,0 +1,3 @@
+rm db.sqlite3 && echo "Deleted previous database."
+./manage.py migrate
+./manage.py loaddata surfers shapers surfboards

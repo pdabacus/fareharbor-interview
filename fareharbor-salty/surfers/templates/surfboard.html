@@ -1,0 +1,14 @@
+{% extends "base.template" %}
+
+{% block content %}
+  <h2>
+    {{ surfboard.model_name }}
+    <span class="dimensions">{{ surfboard.display_dimensions }}</span>
+  </h2>
+
+  <h2>Shaper</h2>
+  {% include 'shared/shaper.template' with shaper=surfboard.shaper %}
+
+  <h2>Current Owner</h2>
+  {% include 'shared/surfer.template' with surfer=surfboard.surfer %}
+{% endblock %}

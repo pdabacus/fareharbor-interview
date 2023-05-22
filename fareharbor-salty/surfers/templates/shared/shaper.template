@@ -1,0 +1,4 @@
+<a href="/shapers/{{ shaper.pk }}/">
+  <strong>{{ shaper.name }}</strong>
+  <span>({{ shaper.label }})</span>
+</a>

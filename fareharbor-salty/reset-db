@@ -1,0 +1,8 @@
+#
+# Resets migrations and db.
+#
+rm surfers/migrations/0*.py && echo "Deleted existing migrations."
+rm db.sqlite3 && echo "Deleted database."
+./manage.py makemigrations
+./manage.py migrate
+./manage.py loaddata surfers shapers surfboards

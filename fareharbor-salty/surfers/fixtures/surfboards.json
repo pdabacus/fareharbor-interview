@@ -1,0 +1,100 @@
+[
+  {
+    "model": "surfers.Surfboard",
+    "pk": 1,
+    "fields": {
+      "model_name": "P-Rocket",
+      "surfer": 2,
+      "shaper": 1,
+      "length": 70,
+      "width": 19.25,
+      "created_at": "2015-02-07"
+    }
+  },
+  {
+    "model": "surfers.Surfboard",
+    "pk": 2,
+    "fields": {
+      "model_name": "Mush Master",
+      "surfer": 2,
+      "shaper": 1,
+      "length": 68,
+      "width": 20.25,
+      "created_at": "2014-06-08"
+    }
+  },
+  {
+    "model": "surfers.Surfboard",
+    "pk": 3,
+    "fields": {
+      "model_name": "Piggy Dangler",
+      "surfer": 3,
+      "shaper": 1,
+      "length": 118,
+      "width": 22.5,
+      "created_at": "2013-08-12"
+    }
+  },
+
+  {
+    "model": "surfers.Surfboard",
+    "pk": 4,
+    "fields": {
+      "model_name": "Quad Fish",
+      "surfer": 3,
+      "shaper": 3,
+      "length": 64,
+      "width": 21,
+      "created_at": "2015-05-02"
+    }
+  },
+  {
+    "model": "surfers.Surfboard",
+    "pk": 5,
+    "fields": {
+      "model_name": "Bat Wing",
+      "surfer": 3,
+      "shaper": 2,
+      "length": 66,
+      "width": 20.5,
+      "created_at": "2015-05-10"
+    }
+  },
+  {
+    "model": "surfers.Surfboard",
+    "pk": 6,
+    "fields": {
+      "model_name": "Soy Bean",
+      "surfer": 1,
+      "shaper": 2,
+      "length": 68,
+      "width": 22,
+      "created_at": "2015-06-22"
+    }
+  },
+
+  {
+    "model": "surfers.Surfboard",
+    "pk": 7,
+    "fields": {
+      "model_name": "Stubby",
+      "surfer": 3,
+      "shaper": 3,
+      "length": 60,
+      "width": 21,
+      "created_at": "1996-11-03"
+    }
+  },
+  {
+    "model": "surfers.Surfboard",
+    "pk": 8,
+    "fields": {
+      "model_name": "Point Breaker",
+      "surfer": 3,
+      "shaper": 3,
+      "length": 72,
+      "width": 21.5,
+      "created_at": "2002-05-30"
+    }
+  }
+]

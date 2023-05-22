@@ -1,0 +1,7 @@
+<ul>
+  {% for shaper in shapers %}
+    <li>
+      {% include 'shared/shaper.template' %}
+    </li>
+  {% endfor %}
+</ul>

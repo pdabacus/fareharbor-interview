@@ -1,0 +1,32 @@
+{% extends 'base.template' %}
+
+{% block nav_shapers_classes %}
+  active
+{% endblock %}
+
+{% block content %}
+
+  <div class="row">
+    <div class="col-md-4">
+    
+      <h2>{{ shaper.name }}</h2>
+      <h4>{{ shaper.label }}</h4>
+    
+      <dl>
+        <dt>Shaping since</dt>
+        <dd>{{ shaper.shaping_since }}</dd>
+      </dl>
+      
+      <p class="bio">
+        {{ shaper.bio }}
+      </p>
+  
+    </div>
+
+    <div class="col-md-8">
+      <p class="lead">{{ shaper.name }}'s boards:</p>
+      {% include 'shared/surfboards.template' with surfboards=shaper.surfboard_set.all %}
+    </div>
+  </div>
+
+{% endblock %}

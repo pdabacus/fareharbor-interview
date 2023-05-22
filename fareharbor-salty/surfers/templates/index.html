@@ -1,0 +1,31 @@
+{% extends 'base.template' %}
+
+{% block nav_home_classes %}
+  active
+{% endblock %}
+
+{% block content %}
+  
+  <div class="page-header">
+    <h1>Hey, this is a silly little website about surfboards.</h1>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-6">
+      <h3>New Surfboards</h3>
+      {% include 'shared/surfboards.template' with surfboards=new_surfboards %}
+    </div>
+
+    <div class="col-md-6">
+      <h3>Shaper Updates</h3>
+      {% include 'shared/shapers.template' with shapers=updated_shapers %}
+    </div>
+
+  </div>
+
+{% endblock %}
+
+{% block quote %}
+  Nobody listens to Turtle.
+{% endblock %}

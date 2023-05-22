@@ -1,0 +1,17 @@
+{% extends 'base.template' %}
+
+{% block nav_shapers_classes %}
+  active
+{% endblock %}
+
+{% block content %}  
+  <div class="page-header">
+    <h1>Shapers</h1>
+  </div>
+
+  {% include 'shared/shapers.template' %}
+{% endblock %}
+
+{% block quote %}
+  When the waves break here don’t be there, or you gonna get drilled.
+{% endblock %}

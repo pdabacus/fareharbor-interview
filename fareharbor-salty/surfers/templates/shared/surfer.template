@@ -1,0 +1,4 @@
+<a class="surfer" href="/surfers/{{ surfer.pk }}/">
+  <div class="face" style="background-image: url({{ surfer.image_url }})"></div>
+  <span>{{ surfer.name }}</span>
+</a>
