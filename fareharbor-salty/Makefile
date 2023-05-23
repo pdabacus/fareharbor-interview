@@ -2,7 +2,7 @@
 # Makefile for Fareharbor Salty Django API
 #
 
-.PHONY: all init vars run
+.PHONY: all init vars run test
 all: init run
 
 init:
@@ -16,3 +16,6 @@ vars: init
 
 run: init
 	python manage.py runserver
+
+test: init
+	python manage.py test

@@ -8,6 +8,10 @@ class Surfer(models.Model):
     bio = models.TextField(blank=True)
     image_url = models.URLField(blank=True)
 
+    def __str__(self):
+        return "%s (%d)" % (self.name, self.pk)
+
+
 class Shaper(models.Model):
     name = models.CharField(max_length=200)
     shaping_since = models.DateField()
@@ -18,6 +22,7 @@ class Shaper(models.Model):
 
     def __unicode__(self):
         return u'%s (since %s)' % (self.name, self.shaping_since.year)
+
 
 class Surfboard(models.Model):
     model_name = models.CharField(max_length=200)
@@ -49,4 +54,3 @@ class Surfboard(models.Model):
             self.shaper.name,
             self.display_dimensions,
         )
-
