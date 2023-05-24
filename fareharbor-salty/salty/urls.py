@@ -17,8 +17,10 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 import surfers.urls
+import api.urls
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include(surfers.urls)),
+    url(r'^api/', include(api.urls)),
 ]
