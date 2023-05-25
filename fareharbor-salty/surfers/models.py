@@ -23,6 +23,9 @@ class Shaper(models.Model):
     def __unicode__(self):
         return u'%s (since %s)' % (self.name, self.shaping_since.year)
 
+    def __str__(self):
+        return "%s (%d)" % (self.name, self.pk)
+
 
 class Surfboard(models.Model):
     model_name = models.CharField(max_length=200)
@@ -58,3 +61,6 @@ class Surfboard(models.Model):
             self.shaper.name,
             self.display_dimensions,
         )
+
+    def __str__(self):
+        return "%s (%d)" % (self.model_name, self.pk)
