@@ -1,0 +1,24 @@
+<table class="table table-condensed">
+  
+  {% if surfboard_models %}
+  
+    <thead>
+      <th>Model</th>
+      <th>Dimensions</th>
+    </thead>
+    
+    {% for surfboard_model in surfboard_models %}
+      <tr>
+        {% include 'shared/model.template' %}
+      </tr>
+    {% endfor %}
+
+  {% else %}
+    <tr>
+      <td>
+      No surfboard models means no waves!!
+      </td>
+    </tr>
+  {% endif %}
+
+</table>

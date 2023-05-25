@@ -55,3 +55,17 @@ def surfboard(request, surfboard_pk):
     return render(request, 'surfboard.html', {
         'surfboard': surfboard,
     })
+
+
+def surfboard_models(request):
+    surfboard_models = SurfboardModel.objects.all()
+    return render(request, 'models.html', {
+        'surfboard_models': surfboard_models,
+    })
+
+
+def surfboard_model(request, surfboard_model_pk):
+    surfboard_model = get_object_or_404(SurfboardModel, pk=surfboard_model_pk)
+    return render(request, 'model.html', {
+        'surfboard_model': surfboard_model
+    })

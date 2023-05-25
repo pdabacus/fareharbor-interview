@@ -9,4 +9,6 @@ urlpatterns = [
     url(r'^shapers/(?P<shaper_pk>\d+)/$', views.shaper),
     url(r'^surfboards/$', views.surfboards),
     url(r'^surfboards/(?P<surfboard_pk>\d+)/$', views.surfboard),
+    url(r'^models/$', views.surfboard_models),
+    url(r'^models/(?P<surfboard_model_pk>\d+)/$', views.surfboard_model),
 ]

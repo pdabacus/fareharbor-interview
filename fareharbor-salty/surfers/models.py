@@ -27,8 +27,20 @@ class Shaper(models.Model):
         return "%s (%d)" % (self.name, self.pk)
 
 
-class Surfboard(models.Model):
+class SurfboardModel(models.Model):
     model_name = models.CharField(max_length=200)
+    description = models.TextField()
+
+    def __str__(self):
+        return "%s (%d)" % (self.model_name, self.pk)
+
+
+class Surfboard(models.Model):
+    # DeprecationWarning("removing field 'model_name' after db column 'surfboard_model' created")
+    model_name = models.CharField(max_length=200)
+
+    surfboard_model = models.ForeignKey(SurfboardModel, on_delete=models.CASCADE)
+
     length = models.FloatField()
     width = models.FloatField()
 

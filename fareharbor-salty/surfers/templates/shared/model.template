@@ -1,0 +1,9 @@
+<td>
+  <a href="/models/{{ surfboard_model.pk }}/">
+    <strong>{{ surfboard_model.model_name }}</strong>
+  </a>
+</td>
+
+<td>
+  <span class="dimensions">{{ surfboard_model.display_dimensions }}</span>
+</td>

@@ -12,13 +12,21 @@
 * created api module with rest_framework for surfers, shapers, and surfboards
 * created serializers and basic unit tests with requests.get()
 
-2023-05-25 05:00-06:00
+2023-05-25 05:00-06:30
 * made new field Surfboards.shapers to be a many to many relationship allowing
   multiple shapers to be contributers to a surfboard
 * migration strategy is to create the new column and populate the values with
   a single item each copying from Surfboard.shaper, then to modify the code to
   use the new Surfboard.shapers set in the application, and once it works as
-  expected, to remove the old Surfboar.shaper column
+  expected, to remove the old Surfboard.shaper column
+* bugfix with table name Shaper.surfboard_set reverse reference many-many table
 
-2023-05-25 06:00-07:00
-*
+2023-05-25 09:30-11:00
+* created SurfboardModel class and began migration to attach a surfboardmodel
+  to each surfboard in a many-to-one relationship
+* created /models/ html templates
+* migration strategy is to create the new column in Surfboards.surfboard_model
+  and create a SurfboardModel for each Surfboard based on who the current
+  contributer/shapers are. after things work, the Surfboard.model_name
+  field will be renamed to just board_name
+
