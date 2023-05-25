@@ -123,6 +123,35 @@ class SurfboardTestCase(TestCase):
 
     def test_add_remove_surfboards(self):
         self.assertEquals(Surfer.objects.count(), 1)
+        self.assertEquals(Shaper.objects.count(), 1)
+        alice = Shaper.objects.first()
         self.assertEquals(Surfboard.objects.count(), 1)
-        Surfer.objects.create(name="beta", skill=2, bio="asdf")
+        beta = Surfer.objects.create(name="beta", skill=2, bio="asdf")
         self.assertEquals(Surfer.objects.count(), 2)
+        bob = Shaper.objects.create(name="bob", shaping_since="2002-01-01")
+        self.assertEquals(Shaper.objects.count(), 2)
+        dos = Surfboard.objects.create(
+            model_name="dos",
+            length=200,
+            width=30,
+            surfer=beta
+        )
+        self.assertEquals(Surfboard.objects.count(), 2)
+        self.assertEquals(dos.shapers.count(), 0)
+        self.assertEquals(alice.surfboard_set.count(), 1)
+        self.assertEquals(bob.surfboard_set.count(), 0)
+        dos.shapers.add(bob)
+        self.assertEquals(dos.shapers.count(), 1)
+        self.assertEquals(alice.surfboard_set.count(), 1)
+        self.assertEquals(bob.surfboard_set.count(), 1)
+        dos.shapers.add(alice)
+        self.assertEquals(dos.shapers.count(), 2)
+        self.assertEquals(alice.surfboard_set.count(), 2)
+        self.assertEquals(bob.surfboard_set.count(), 1)
+        dos.shapers.add(bob)
+        self.assertEquals(dos.shapers.count(), 2)
+        self.assertEquals(alice.surfboard_set.count(), 2)
+        self.assertEquals(bob.surfboard_set.count(), 1)
+    
+    def test_reverse_many_many(self):
+        self.assertEqual(Shaper.objects.first().surfboard_set.count(), 1)

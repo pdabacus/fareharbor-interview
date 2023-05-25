@@ -40,7 +40,7 @@ class Surfboard(models.Model):
     # DeprecationWarning("removing field 'shaper' after db column 'shapers' created")
     #shaper = models.ForeignKey(Shaper)
 
-    shapers = models.ManyToManyField(Shaper, related_name="shapers")
+    shapers = models.ManyToManyField(Shaper)
 
     surfer = models.ForeignKey(Surfer)
 
