@@ -16,4 +16,4 @@ class ShaperSerializer(serializers.HyperlinkedModelSerializer):
 class SurfboardSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Surfboard
-        fields = ["id", "model_name", "length", "width", "description", "image_url", "created_at", "shaper", "surfer"]
+        fields = ["id", "model_name", "length", "width", "description", "image_url", "created_at", "shaper", "shapers", "surfer"]
