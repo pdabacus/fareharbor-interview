@@ -38,7 +38,7 @@ class Surfboard(models.Model):
     created_at = models.DateField(auto_now_add=True)
 
     # DeprecationWarning("removing field 'shaper' after db column 'shapers' created")
-    shaper = models.ForeignKey(Shaper)
+    #shaper = models.ForeignKey(Shaper)
 
     shapers = models.ManyToManyField(Shaper, related_name="shapers")
 

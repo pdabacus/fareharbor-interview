@@ -84,8 +84,7 @@ class SurfboardTestCase(TestCase):
             model_name="uno",
             length=100,
             width=20,
-            surfer=alpha,
-            shaper=alice
+            surfer=alpha
         )
         uno.shapers.add(alice)
         
