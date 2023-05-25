@@ -6,8 +6,16 @@
     <span class="dimensions">{{ surfboard.display_dimensions }}</span>
   </h2>
 
-  <h2>Shaper</h2>
-  {% include 'shared/shaper.template' with shaper=surfboard.shaper %}
+  <h2>Shapers</h2>
+  <ul>
+    {% for shaper in surfboard.shapers.all %}
+      <li>
+        {% include 'shared/shaper.template' %}
+      </li>
+    {% endfor %}
+  </ul>
+
+  {# include 'shared/shaper.template' with shaper=surfboard.shaper #}
 
   <h2>Current Owner</h2>
   {% include 'shared/surfer.template' with surfer=surfboard.surfer %}

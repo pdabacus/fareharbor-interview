@@ -58,7 +58,7 @@ class Surfboard(models.Model):
     def __unicode__(self):
         return u'%s by %s (%s)' % (
             self.model_name,
-            self.shaper.name,
+            self.shapers.first().name,
             self.display_dimensions,
         )
 
