@@ -5,5 +5,5 @@
 </td>
 
 <td>
-  <span class="dimensions">{{ surfboard_model.display_dimensions }}</span>
+  <span class="description">{{ surfboard_model.description }}</span>
 </td>

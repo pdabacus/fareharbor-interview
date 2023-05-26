@@ -3,20 +3,22 @@
 {% block content %}
   <h2>
     {{ surfboard_model.model_name }}
-    <span class="dimensions">{{ surfboard_model.display_dimensions }}</span>
   </h2>
 
-  <h2>Shapers</h2>
+  <h2>Description</h2>
+  <p>
+    {{ surfboard_model.description }}
+  </p>
+
+  <h2>Surfboard Makes</h2>
   <ul>
-    {% for shaper in surfboard.shapers.all %}
+    {% for make in surfboard_model.surfboard_set.all %}
       <li>
-        {% include 'shared/shaper.template' %}
+        <a href="/surfboards/{{make.pk}}/">
+          {{ make.model_name }}
+        </a>
       </li>
     {% endfor %}
+
   </ul>
-
-  {# include 'shared/shaper.template' with shaper=surfboard.shaper #}
-
-  <h2>Current Owner</h2>
-  {% include 'shared/surfer.template' with surfer=surfboard.surfer %}
 {% endblock %}

@@ -5,6 +5,11 @@
     {{ surfboard.model_name }}
     <span class="dimensions">{{ surfboard.display_dimensions }}</span>
   </h2>
+  
+  <h2>Model</h2>
+  <a href="/models/{{ surfboard.surfboard_model.pk }}/">
+     {{surfboard.surfboard_model.model_name}}
+  </a>
 
   <h2>Shapers</h2>
   <ul>

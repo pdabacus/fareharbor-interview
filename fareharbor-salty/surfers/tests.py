@@ -1,5 +1,5 @@
 from django.test import TestCase
-from surfers.models import Surfer, Shaper, Surfboard
+from surfers.models import Surfer, Shaper, SurfboardModel, Surfboard
 from django.core.exceptions import ObjectDoesNotExist
 
 from datetime import date
@@ -80,11 +80,13 @@ class SurfboardTestCase(TestCase):
     def setUp(self):
         alpha = Surfer.objects.create(name="alpha", skill=1, bio="newby")
         alice = Shaper.objects.create(name="alice", shaping_since="2001-01-01")
+        aa = SurfboardModel.objects.create(model_name="aa", description="aaaaa")
         uno = Surfboard.objects.create(
             model_name="uno",
             length=100,
             width=20,
-            surfer=alpha
+            surfer=alpha,
+            surfboard_model=aa
         )
         uno.shapers.add(alice)
         
@@ -97,8 +99,10 @@ class SurfboardTestCase(TestCase):
     def test_change_name_owner(self):
         alpha = Surfer.objects.get(name="alpha")
         alice = Shaper.objects.get(name="alice")
+        aa = SurfboardModel.objects.get(model_name="aa")
         uno = Surfboard.objects.get(model_name="uno")
         self.assertEqual(uno.surfer, alpha)
+        self.assertEqual(uno.surfboard_model, aa)
         self.assertEqual(uno.shapers.count(), 1)
         self.assertEqual(uno.shapers.first(), alice)
         uno.model_name = "uno2"
@@ -124,17 +128,21 @@ class SurfboardTestCase(TestCase):
     def test_add_remove_surfboards(self):
         self.assertEquals(Surfer.objects.count(), 1)
         self.assertEquals(Shaper.objects.count(), 1)
+        self.assertEquals(SurfboardModel.objects.count(), 1)
         alice = Shaper.objects.first()
         self.assertEquals(Surfboard.objects.count(), 1)
         beta = Surfer.objects.create(name="beta", skill=2, bio="asdf")
         self.assertEquals(Surfer.objects.count(), 2)
         bob = Shaper.objects.create(name="bob", shaping_since="2002-01-01")
         self.assertEquals(Shaper.objects.count(), 2)
+        bb = SurfboardModel.objects.create(model_name="bb", description="bbbbbb")
+        self.assertEquals(SurfboardModel.objects.count(), 2)
         dos = Surfboard.objects.create(
             model_name="dos",
             length=200,
             width=30,
-            surfer=beta
+            surfer=beta,
+            surfboard_model=bb
         )
         self.assertEquals(Surfboard.objects.count(), 2)
         self.assertEquals(dos.shapers.count(), 0)

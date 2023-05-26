@@ -30,3 +30,6 @@
   contributer/shapers are. after things work, the Surfboard.model_name
   field will be renamed to just board_name
 
+2023-05-25 22:00-23:30
+* completed data migration generating random SurfboardModel names/descriptions
+*

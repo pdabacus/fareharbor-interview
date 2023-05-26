@@ -4,7 +4,7 @@
   
     <thead>
       <th>Model</th>
-      <th>Dimensions</th>
+      <th>Description</th>
     </thead>
     
     {% for surfboard_model in surfboard_models %}

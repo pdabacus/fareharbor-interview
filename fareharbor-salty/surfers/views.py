@@ -4,7 +4,7 @@ from django.shortcuts import (
 from django.db.models import Max
 
 from surfers.models import (
-    Surfer, Shaper, Surfboard
+    Surfer, Shaper, SurfboardModel, Surfboard
 )
 
 
