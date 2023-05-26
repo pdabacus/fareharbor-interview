@@ -32,4 +32,12 @@
 
 2023-05-25 22:00-23:30
 * completed data migration generating random SurfboardModel names/descriptions
-*
+
+2023-05-26 00:00-01:30
+* created recommendation system for boards (first using random to build view)
+* created recommendation strategy based off
+  1. boards with the same model as ones owned by surfer
+  2. boards with the same shaper as ones owned by surfer
+  3. other boards owned by surfers with the same fav model
+  4. other boards owned by surfers with the same fav shaper
+  5. most popular shaper

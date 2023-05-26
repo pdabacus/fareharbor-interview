@@ -24,5 +24,19 @@
       {% include 'shared/surfboards.template' with surfboards=surfer.surfboard_set.all %}
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Recommended Boards</h2>
+      <ol>
+        {% for recommendation in surfer.recommendations %}
+          <li>
+            <a href="/surfboards/{{recommendation.pk}}/">
+              <strong>{{recommendation.model_name}}</strong>
+            </a>
+          </li>
+        {% endfor %}
+      </ol>
+    </div>
+  </div>
 
 {% endblock %}
