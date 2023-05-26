@@ -3,27 +3,64 @@
 from __future__ import unicode_literals
 
 from django.db import migrations
+import random
+
+
+def random_board_model_name(collaborator_names):
+    placeholder_names = ["The Stanky", "Bro", "WaveRave", "Poseidon", "Board Out Of My Mind", "WetWater"]
+    placeholder_group_names = ["Bro Squad", "Water Boarders", "VaporWave", "BFFgang", None]
+    features = []
+    if len(collaborator_names) > 1:
+        for i in range(len(collaborator_names)):
+            group_name = random.choice(placeholder_group_names)
+            if group_name is not None:
+                break
+            features.append(collaborator_names[i])
+        while group_name is None:
+            group_name = random.choice(placeholder_group_names)
+    else:
+        group_name = collaborator_names[0]
+
+    if len(features) > 0:
+        feature_str = " featuring " + (" and ").join(features)
+    else:
+        feature_str = ""
+
+    model_name = random.choice(placeholder_names)
+    long_model_name = model_name + " by " + group_name + feature_str
+    return long_model_name, model_name + feature_str
+
 
 def populate_many_to_one_surfboard_models(apps, schema_editor):
     """
     Creating Surfboard.surfboard_model many-to-one relation to allow for a
     SurfboardModel to have multiple surfboards attached to it like unique grouping
     """
-    Surfboard = apps.get_model("surfers", "Shaper")
+    Shaper = apps.get_model("surfers", "Shaper")
     Surfboard = apps.get_model("surfers", "Surfboard")
     SurfboardModel = apps.get_model("surfers", "SurfboardModel")
 
-    collaboration_possibilities = dict() # tuple[Shaper.id] -> list[Surfboard]
+    collaboration_possibilities = dict()  # tuple[Shaper.id] -> list[Surfboard]
     for surfboard in Surfboard.objects.all():
         collaborators = tuple(sorted(set([shaper.id for shaper in surfboard.shapers.all()])))
         if collaborators in collaboration_possibilities:
             collaboration_possibilities[collaborators].append(surfboard)
         else:
-            collaboration_possibilities[collaboration_possibilities] = [surfboard]
+            collaboration_possibilities[collaborators] = [surfboard]
+    new_board_models = dict()
     for collaborators, surfboards in collaboration_possibilities.items():
-        collaborator_names = [Shaper.]
-        model_name = 
-
+        collaborator_names = [Shaper.objects.get(id=shaper_id).name for shaper_id in collaborators]
+        found_unique_name = False
+        while not found_unique_name:
+            full_model_name, model_name = random_board_model_name(collaborator_names)
+            if full_model_name not in new_board_models:
+                new_board_models[full_model_name] = (model_name, surfboards)
+                found_unique_name = True
+    for full_model_name, (model_name, surfboards) in new_board_models.items():
+        new_model = SurfboardModel.objects.create(model_name=full_model_name, description=model_name)
+        for surfboard in surfboards:
+            surfboard.surfboard_model = new_model
+            surfboard.save()
 
 
 class Migration(migrations.Migration):
@@ -33,5 +70,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RunPython(populate_many_to_many_surfboards_shapers),
+        migrations.RunPython(populate_many_to_one_surfboard_models),
     ]
