@@ -41,3 +41,6 @@
   3. other boards owned by surfers with the same fav model
   4. other boards owned by surfers with the same fav shaper
   5. most popular shaper
+
+2023-05-26 17:00-18:00
+* finished implementing recommendations
